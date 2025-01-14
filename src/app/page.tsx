@@ -26,7 +26,7 @@ const HomePage = async () => {
       <div className="mt-4">
         <Suspense fallback={<Skeleton />}>
         <h1 className="text-3xl font-bold text-center my-8">Our Categories</h1>
-        <CategoryList  categoryId={process.env.FEATURED_PRODUCTS_FEATURED_CATEGORY_ID!} />
+        <CategoryList  />
         </Suspense>
       </div>
       <div className="mt-24 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
