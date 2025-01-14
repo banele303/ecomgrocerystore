@@ -1,4 +1,4 @@
-"use client"
+
 import NewProducts from "@/components/NewProducts";
 import Skeleton from "@/components/Skeleton";
 import { Suspense } from "react";
