@@ -1,6 +1,7 @@
+"use client"
 import NewProducts from "@/components/NewProducts";
 import Skeleton from "@/components/Skeleton";
-import { Suspense, useContext, useEffect } from "react";
+import { Suspense } from "react";
 
 const HomePage = async () => {
  
