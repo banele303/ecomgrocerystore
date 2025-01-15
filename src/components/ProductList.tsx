@@ -1,9 +1,7 @@
 import { wixClientServer } from "@/lib/wixClientServer";
 import { products } from "@wix/stores";
 import Image from "next/image";
-import Link from "next/link";
-import DOMPurify from "isomorphic-dompurify";
-import Pagination from "./Pagination";
+import Link from "next/link"
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import {
