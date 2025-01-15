@@ -1,3 +1,185 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import { wixClientServer } from "@/lib/wixClientServer";
 import { products } from "@wix/stores";
 import Image from "next/image";
@@ -12,6 +194,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { MapPin, Menu, Search, ShoppingCart, User } from 'lucide-react';
+import Pagination from "./Pagination";
 
 const PRODUCT_PER_PAGE = 8;
 
@@ -58,72 +241,54 @@ const ProductList = async ({
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-secondary/20 to-background">
-    <main className="container mx-auto px-4 py-8">
-      <div className="flex items-center justify-between mb-8">
-     
-      </div>
+      <main className="container mx-auto px-4 py-8">
+        <div className="flex items-center justify-between mb-8">
 
-      <div className="flex items-center justify-between mb-8">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="bg-primary/10 hover:bg-primary/20">
-              <Menu className="mr-2 h-4 w-4" />
-              Sort By: Newest
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem>Newest</DropdownMenuItem>
-            <DropdownMenuItem>Price: Low to High</DropdownMenuItem>
-            <DropdownMenuItem>Price: High to Low</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        </div>
 
-        <Button variant="outline" className="bg-primary/10 hover:bg-primary/20">
-          <Search className="mr-2 h-4 w-4" />
-          Filter
-        </Button>
-      </div>
+        <div className="flex items-center justify-between mb-8">
+        </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {res.items.map((product: products.Product) => (
-          <Card key={product._id} className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 flex flex-col">
-            <Link href={"/" + product.slug} className="flex-grow">
-              <div className="relative aspect-square p-6 bg-secondary/30">
-                <Image
-                  src={product.media?.mainMedia?.image?.url || "/product.png"}
-                  alt="meme"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                  className="object-contain transition-opacity duration-300 ease-in-out group-hover:opacity-75"
-                />
-              </div>
-              <CardContent className="p-4 bg-primary/5">
-                <h3 className="text-lg font-semibold line-clamp-1 text-primary">{product.name}</h3>
-                <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
-                  {product.additionalInfoSections?.find((section: any) => section.title === "shortDesc")?.description || ""}
-                </p>
-                <div className="flex justify-between items-center mt-4">
-                  <span className="text-primary font-bold text-lg">R{product.price?.price}</span>
-                  <Button variant="secondary" size="sm" className="bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-colors duration-300">
-                    <ShoppingCart className="h-4 w-4 mr-2" />
-                    Add to Cart
-                  </Button>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {res.items.map((product: products.Product) => (
+            <Card key={product._id} className="overflow-hidden transition-all duration-300 hover:shadow-lg py-[-3rem] hover:-translate-y-1 flex flex-col">
+              <Link href={"/" + product.slug} className="flex-grow">
+                <div className="relative aspect-square px-6 bg-secondary/30">
+                  <Image
+                    src={product.media?.mainMedia?.image?.url || "/product.png"}
+                    alt="meme"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    className="object-contain transition-opacity duration-300 ease-in-out group-hover:opacity-75"
+                  />
                 </div>
-              </CardContent>
-            </Link>
-          </Card>
-        ))}
-      </div>
+                <CardContent className="p-4 bg-primary/5">
+                  <h3 className="text-lg font-semibold line-clamp-1 text-primary">{product.name}</h3>
+                  <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
+                    {product.additionalInfoSections?.find((section: any) => section.title === "shortDesc")?.description || ""}
+                  </p>
+                  <div className="flex justify-between items-center mt-4">
+                    <span className="text-primary font-bold text-lg">R{product.price?.price}</span>
+                    <Button variant="secondary" size="sm" className="bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-colors duration-300">
+                      <ShoppingCart className="h-4 w-4 mr-2" />
+                      Add to Cart
+                    </Button>
+                  </div>
+                </CardContent>
+              </Link>
+            </Card>
+          ))}
+        </div>
 
-      {/* {searchParams?.cat || searchParams?.name ? (
-        <Pagination
-          currentPage={res.currentPage || 0}
-          hasPrev={res.hasPrev()}
-          hasNext={res.hasNext()}
-        />
-      ) : null} */}
-    </main>
-  </div>
+        {searchParams?.cat || searchParams?.name ? (
+          <Pagination
+            currentPage={res.currentPage || 0}
+            hasPrev={res.hasPrev()}
+            hasNext={res.hasNext()}
+          />
+        ) : null}
+      </main>
+    </div>
   );
 };
 

@@ -1,4 +1,3 @@
-
 import ProductList from "@/components/ProductList";
 import NewProducts from "@/components/NewProducts";
 import Skeleton from "@/components/Skeleton";
