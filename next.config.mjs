@@ -1,5 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+
+
+
+  images: {
+    domains: ['static.wixstatic.com'], // Add Wix image domain
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.wixstatic.com',
+      },
+    ],
+  },
+
   images: {
     remotePatterns: [
       {
@@ -21,8 +34,10 @@ const nextConfig = {
     ],
   },
   experimental: {
-    serverActions: true
-  }
+    serverActions: {
+      bodySizeLimit: '2mb'
+    },
+  },
 };
 
 export default nextConfig;
