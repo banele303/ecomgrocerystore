@@ -20,23 +20,9 @@ const nextConfig = {
       },
     ],
   },
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'x-forwarded-host',
-            value: 'https://upgraded-invention-rv6r9rx7669hpjvr-3000.app.github.dev', // Replace with your actual hostname
-          },
-          {
-            key: 'origin',
-            value: 'http://localhost:3000', // Replace with your actual origin
-          },
-        ],
-      },
-    ];
-  },
+  experimental: {
+    serverActions: true
+  }
 };
 
 export default nextConfig;

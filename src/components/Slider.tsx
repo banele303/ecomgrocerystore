@@ -70,7 +70,7 @@ export default function GroceryHeroSlider() {
             className={`w-full flex-shrink-0 border-none shadow-none bg-gradient-to-br ${slide.bg}`}
           >
             <CardContent className="flex flex-col md:flex-row items-center justify-between h-full p-6 md:p-8">
-              <div className="w-full md:w-1/2 flex flex-col gap-4 text-center md:text-left mb-6 md:mb-0">
+              <div className="w-full md:pl-[5rem] md:w-1/2 flex flex-col gap-4 text-center md:text-left mb-6 md:mb-0">
                 <Badge variant="secondary" className="w-fit mx-auto md:mx-0 text-sm">
                   Featured Deal
                 </Badge>
