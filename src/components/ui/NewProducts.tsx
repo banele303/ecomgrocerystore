@@ -276,7 +276,7 @@ export default function ProductsList({ categoryId, limit, searchParams }: Produc
             <div>
               <h3 className="text-xl font-semibold mb-4">About Us</h3>
               <p className="text-sm">
-                We're passionate about bringing you the best products at great prices.
+                We&apos;re passionate about bringing you the best products at great prices.
               </p>
             </div>
             <div>
