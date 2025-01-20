@@ -9,6 +9,7 @@ import ShopCategories from "@/components/ui/CategoryNav";
 import SoftDrinks from "@/components/SoftDrinksCategory";
 import ProductSlider from "@/components/Chocolate";
 import ChocoList from "@/components/Chocolate";
+import PromotionalBanner from "@/components/AdvertisingBunner";
 
 
 const HomePage = async () => {
@@ -17,8 +18,8 @@ const HomePage = async () => {
   return (
     <div className="">
       <Slider />
-    
-      <div className="mt-10 md:mt-23 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
+      <div className=" bg-blue-100">
+      <div className="mt-10 md:mt-23 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 ">
        
       <div className="mt-4">
         <Suspense fallback={<Skeleton />}>
@@ -51,7 +52,7 @@ const HomePage = async () => {
 
 
      
-
+<PromotionalBanner/>
 
       <Suspense fallback={<Skeleton />}>
           <ChocoList
@@ -68,6 +69,8 @@ const HomePage = async () => {
           />
         </Suspense> */}
       </div>
+      </div>
+    
     </div>
   );
 };
