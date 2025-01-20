@@ -44,7 +44,6 @@ const HomePage = async () => {
 
       <div className="mt-4">
         <Suspense fallback={<Skeleton />}>
-        <h1 className="text-3xl font-bold text-center my-8">Our Categories</h1>
         <CategoryList  />
         </Suspense>
       </div>
@@ -56,7 +55,7 @@ const HomePage = async () => {
 
       <Suspense fallback={<Skeleton />}>
           <ChocoList
-           categoryId={process.env.FEATURED_PRODUCTS_FEATURED_CATEGORY_ID!}
+           categoryId={process.env.NEXT_PUBLIC_WIX_LAYS_ID!}
            limit={8}
           />
         </Suspense>
