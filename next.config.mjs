@@ -1,18 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-
-
-
-  images: {
-    domains: ['static.wixstatic.com'], // Add Wix image domain
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**.wixstatic.com',
-      },
-    ],
-  },
-
   images: {
     remotePatterns: [
       {
@@ -33,10 +20,22 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    serverActions: {
-      bodySizeLimit: '2mb'
-    },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'x-forwarded-host',
+            value: 'https://upgraded-invention-rv6r9rx7669hpjvr-3000.app.github.dev', // Replace with your actual hostname
+          },
+          {
+            key: 'origin',
+            value: 'http://localhost:3000', // Replace with your actual origin
+          },
+        ],
+      },
+    ];
   },
 };
 

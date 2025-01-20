@@ -1,3 +1,4 @@
+
 import { wixClientServer } from "@/lib/wixClientServer";
 import { products } from "@wix/stores";
 import Image from "next/image";
@@ -8,7 +9,7 @@ import Pagination from "./Pagination";
 
 const PRODUCT_PER_PAGE = 8;
 
-const ProductList = async ({
+const ChocoList = async ({
   categoryId,
   limit,
   searchParams,
@@ -59,7 +60,7 @@ const ProductList = async ({
       <main className="container mx-auto px-4 py-8">
         <div className="mb-6">
           <h2 className="text-xl font-bold flex justify-between items-center">
-            Top Deals
+            New Products
             <Link href="/deals" className="text-sm text-blue-600 font-normal">
               View more
             </Link>
@@ -132,4 +133,4 @@ const ProductList = async ({
   );
 };
 
-export default ProductList;
+export default ChocoList;
