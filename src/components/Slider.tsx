@@ -11,34 +11,37 @@ import Link from "next/link"
 const slides = [
   {
     id: 1,
-    title: "Refreshing Summer Drinks",
-    description: "Cool off with our selection of icy beverages!",
+    title: "Summer Flavor Explosion",
+    description: "Curated Refreshments That Redefine Cool",
     img: "/juice.jpeg",
-    url: "/summer-drinks",
-    bg: "from-cyan-200 to-blue-200",
-    product: { name: "Fizzy Cola", price: "R10.99" }
+    url: "/summer-collection",
+    bg: "from-emerald-500 to-teal-400",
+    accent: "bg-gradient-to-r from-emerald-400 to-teal-500",
+    product: { name: "Artisan Fizzy Cola", price: "R12.99" }
   },
   {
     id: 2,
-    title: "Crispy Snack Attack",
-    description: "Satisfy your cravings with our crunchy treats!",
-    img: "/layers.jpeg",
-    url: "/snacks",
-    bg: "from-yellow-200 to-orange-200",
-    product: { name: "Potato Chips", price: "R18.99" }
+    title: "Crisp. Gourmet. Irresistible.",
+    description: "Elevate Your Snack Experience",
+    img: "/layers.jpeg", 
+    url: "/premium-snacks",
+    bg: "from-amber-500 to-orange-400",
+    accent: "bg-gradient-to-r from-amber-400 to-orange-500",
+    product: { name: "Truffle Potato Chips", price: "R19.99" }
   },
   {
     id: 3,
-    title: "Healthy Fruit Juices",
-    description: "Natural goodness in every sip!",
+    title: "Pure Wellness in Every Sip",
+    description: "Organic Juices, Crafted with Passion",
     img: "/juice.jpeg",
-    url: "/juices",
-    bg: "from-green-200 to-lime-200",
-    product: { name: "Mixed Fruit Juice", price: "R10.99" }
+    url: "/wellness-juices",
+    bg: "from-indigo-500 to-purple-400",
+    accent: "bg-gradient-to-r from-indigo-400 to-purple-500",
+    product: { name: "Cold-Pressed Fusion", price: "R14.99" }
   },
 ]
 
-export default function GroceryHeroSlider() {
+export default function USAGroceryHeroSlider() {
   const [current, setCurrent] = useState(0)
 
   useEffect(() => {
@@ -58,87 +61,96 @@ export default function GroceryHeroSlider() {
   }
 
   return (
-    <div className="relative overflow-hidden rounded-xl shadow-lg bg-gradient-to-br from-gray-100 to-gray-200">
-      <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+    <div className="relative overflow-hidden rounded-3xl shadow-2xl bg-black/90">
+      <div className="absolute inset-0 bg-dot-pattern opacity-10"></div>
+      
       <div
-        className="relative w-full transition-transform duration-500 ease-out flex"
+        className="relative w-full h-[100vh] transition-transform duration-700 ease-in-out flex"
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
-        {slides.map((slide, index) => (
+        {slides.map((slide) => (
           <Card
             key={slide.id}
-            className={`w-full flex-shrink-0 border-none shadow-none bg-gradient-to-br ${slide.bg}`}
+            className={`w-full flex-shrink-0 border-none  shadow-none bg-gradient-to-br ${slide.bg}`}
           >
-            <CardContent className="flex flex-col md:flex-row items-center justify-between h-full p-6 md:p-8">
-              <div className="w-full md:pl-[5rem] md:w-1/2 flex flex-col gap-4 text-center md:text-left mb-6 md:mb-0">
-                <Badge variant="secondary" className="w-fit mx-auto md:mx-0 text-sm">
-                  Featured Deal
+            <CardContent className="relative z-10 flex flex-col md:flex-row items-center justify-between h-[700px] p-8 overflow-hidden">
+              <div className="w-full md:w-1/2 z-20 flex flex-col gap-6 text-center md:text-left">
+                <Badge 
+                  className={`w-fit mx-auto md:mx-0 text-sm text-white ${slide.accent}`}
+                >
+                  Exclusive Release
                 </Badge>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-800 tracking-tight">
+                
+                <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight leading-tight drop-shadow-lg">
                   {slide.title}
                 </h2>
-                <p className="text-base md:text-lg text-gray-600 max-w-md mx-auto md:mx-0">
+                
+                <p className="text-lg md:text-xl text-white/90 max-w-md mx-auto md:mx-0 drop-shadow-md">
                   {slide.description}
                 </p>
-                <div className="mt-4 flex flex-col md:flex-row items-center gap-4">
-                  <Link href={slide.url}>
-                    <Button size="lg" className="w-full md:w-auto">
+                
+                <div className="mt-6 flex flex-col md:flex-row items-center gap-4">
+                  <Link href={slide.url} className="w-full md:w-auto">
+                    <Button 
+                      size="lg" 
+                      className={`w-full md:w-auto ${slide.accent} hover:brightness-110 transition-all`}
+                    >
                       <ShoppingCart className="mr-2 h-5 w-5" /> Shop Now
                     </Button>
                   </Link>
-                  <div className="text-center md:text-right">
-                    <p className="text-sm text-gray-600">{slide.product.name}</p>
-                    <p className="text-xl font-bold text-gray-800">{slide.product.price}</p>
+                  
+                  <div className="text-center md:text-left">
+                    <p className="text-sm text-white/70">{slide.product.name}</p>
+                    <p className="text-2xl font-bold text-white">{slide.product.price}</p>
                   </div>
                 </div>
               </div>
-              <div className="w-full md:w-1/2 h-64 md:h-80 relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-64 h-64 md:w-64 md:h-64 rounded-full bg-white backdrop-blur-md shadow-lg flex items-center justify-center overflow-hidden">
-                    <Image
-                      src={slide.img}
-                      alt={slide.title}
-                      width={200}
-                      height={200}
-                      className="object-cover transition-transform duration-300 ease-in-out hover:scale-110"
-                    />
-                  </div>
+              
+              <div className="w-full md:w-1/2 h-full relative flex items-center justify-center">
+                <div className="absolute w-96 h-96 rounded-full bg-white/10 backdrop-blur-2xl animate-pulse"></div>
+                
+                <div className="relative z-30 w-72  h-72 rounded-full overflow-hidden shadow-2xl border-4 border-white/30">
+                  <Image
+                    src={slide.img}
+                    alt={slide.title}
+                    fill
+                    className="object-cover p-8 bg-white transition-transform duration-500 hover:scale-110"
+                  />
                 </div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-56 h-56 md:w-72 md:h-72 rounded-full border-4 border-dashed border-white/50 animate-spin-slow"></div>
               </div>
             </CardContent>
           </Card>
         ))}
       </div>
-      <button
-        onClick={prevSlide}
-        className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white/50 hover:bg-white/75 text-gray-800 p-2 rounded-full transition-colors duration-200"
-        aria-label="Previous slide"
-      >
-        <ChevronLeft className="h-6 w-6" />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white/50 hover:bg-white/75 text-gray-800 p-2 rounded-full transition-colors duration-200"
-        aria-label="Next slide"
-      >
-        <ChevronRight className="h-6 w-6" />
-      </button>
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+      
+      <div className="absolute top-1/2 w-full flex justify-between px-4 z-50 transform -translate-y-1/2">
+        <button
+          onClick={prevSlide}
+          className="bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-3 rounded-full transition-all"
+        >
+          <ChevronLeft className="h-7 w-7" />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-3 rounded-full transition-all"
+        >
+          <ChevronRight className="h-7 w-7" />
+        </button>
+      </div>
+      
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-3">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrent(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               current === index
-                ? "bg-gray-800 scale-125"
-                : "bg-gray-400 hover:bg-gray-600"
+                ? "bg-white scale-150"
+                : "bg-white/50 hover:bg-white/80"
             }`}
-            aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
     </div>
   )
 }
-

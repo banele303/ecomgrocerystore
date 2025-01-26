@@ -7,18 +7,6 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { Menu, Search, ShoppingCart, User } from 'lucide-react';
-
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
-
 import SearchBar from "./SearchBar";
 import MenuPhone from "./Menu";
 import CartModal from "./CartModal";
@@ -63,7 +51,7 @@ const Navbar = () => {
             <Link href="/">Homepage</Link>
             <Link href="/deals">Shop</Link>
             <Link href="/deals">Deals</Link>
-            <Link href="/about-us">About</Link>
+           
           </div>
         </div>
         {/* RIGHT */}
@@ -85,24 +73,3 @@ export default Navbar;
 
 
 
-
-
-
-// <header className="border-b">
-//         <div className="container mx-auto px-4">
-//           <div className="flex h-16 items-center justify-between">
-//             <div className="flex items-center space-x-4">
-//               <Button variant="ghost" size="icon">
-//                 <Menu className="h-6 w-6" />
-//               </Button>
-//               <h1 className="text-2xl font-bold">bash</h1>
-//             </div>
-//             <div className="hidden md:flex items-center space-x-4">
-//               <Search className="h-6 w-6" />
-//               <MapPin className="h-6 w-6" />
-//               <User className="h-6 w-6" />
-//               <ShoppingCart className="h-6 w-6" />
-//             </div>
-//           </div>
-//         </div>
-//       </header>

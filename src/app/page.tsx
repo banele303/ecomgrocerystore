@@ -1,13 +1,12 @@
 import ProductList from "@/components/ProductList";
-import NewProducts from "@/components/NewProducts";
+
 import Skeleton from "@/components/Skeleton";
 import Slider from "@/components/Slider";
 import { Suspense } from "react";
 import CategoryList from "@/components/CategoryList";
-import NewProductsList from "@/components/ui/NewProducts";
+;
 import ShopCategories from "@/components/ui/CategoryNav";
-import SoftDrinks from "@/components/SoftDrinksCategory";
-import ProductSlider from "@/components/Chocolate";
+
 import ChocoList from "@/components/Chocolate";
 import PromotionalBanner from "@/components/AdvertisingBunner";
 
@@ -18,12 +17,12 @@ const HomePage = async () => {
   return (
     <div className="">
       <Slider />
-      <div className=" bg-blue-100">
-      <div className="mt-10 md:mt-23 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 ">
+      <div className=" bg-black">
+      <div className="px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 ">
        
-      <div className="mt-4">
+      <div className="py-4">
         <Suspense fallback={<Skeleton />}>
-        <h1 className="text-3xl font-bold text-center my-8">Our Categories</h1>
+        <h1 className="text-3xl font-bold text-center my-8 text-white">Our Categories</h1>
         <ShopCategories  />
         </Suspense>
       </div>
@@ -43,12 +42,12 @@ const HomePage = async () => {
 
 
 
-      <div className="mt-4">
+      <div className="py-4">
         <Suspense fallback={<Skeleton />}>
         <CategoryList  />
         </Suspense>
       </div>
-      <div className="mt-24 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
+      <div className="pt-24 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
 
 
      

@@ -22,8 +22,7 @@ const Menu = () => {
           <Link href="/">Homepage</Link>
           <Link href="/deals">Shop</Link>
           <Link href="/deals">Deals</Link>
-          <Link href="/about-us">About</Link>
-          
+         
         </div>
       )}
     </div>

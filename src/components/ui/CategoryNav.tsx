@@ -16,7 +16,7 @@ const ShopCategories = async () => {
 
       {/* Categories Grid */}
       <div>
-        <h2 className="text-lg font-semibold mb-4">Shop by Aisle</h2>
+        <h2 className="text-lg font-semibold mb-4 text-white">Shop </h2>
         <div className="grid grid-cols-4 gap-4">
           {cats.items.map((item) => (
             <Link href={`/list?cat=${item.slug}`} key={item._id} className="flex flex-col items-center gap-2">
@@ -29,7 +29,7 @@ const ShopCategories = async () => {
                   className="object-contain"
                 />
               </div>
-              <span className="text-sm text-center">{item.name}</span>
+              <span className="text-sm text-center text-white">{item.name}</span>
             </Link>
           ))}
         </div>

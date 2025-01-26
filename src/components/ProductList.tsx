@@ -55,10 +55,10 @@ const ProductList = async ({
   };
 
   return (
-    <div className="min-h-screen bg-blue-100">
+    <div className="min-h-screen bg-black">
       <main className="container mx-auto px-2 py-8">
         <div className="mb-6">
-          <h2 className="text-xl font-bold flex justify-between items-center">
+          <h2 className="text-xl font-bold flex justify-between items-center text-white">
             Top Deals
             <Link href="/deals" className="text-sm text-blue-600 font-normal">
               View more
