@@ -1,44 +1,43 @@
-import React from 'react';
-import { CSSProperties } from 'react';
+"use client";
+import * as React from "react";
+import { DayPicker } from "react-day-picker";
+import { cn } from "@/lib/utils";
 
-// Assuming IconProps is defined somewhere
+import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
+
 interface IconProps {
-  style?: CSSProperties;
+  style?: React.CSSProperties;
   className: string;
+  children?: React.ReactNode | null;
 }
 
-interface ExtendedIconProps extends IconProps {
-  children?: React.ReactNode;
+export type CalendarProps = React.ComponentProps<typeof DayPicker>;
+
+function Calendar({
+  className,
+  classNames,
+  showOutsideDays = true,
+  ...props
+}: CalendarProps) {
+  return (
+    <DayPicker
+      showOutsideDays={showOutsideDays}
+      className={cn("p-3", className)}
+      classNames={{
+        // ... existing classNames remain the same
+      }}
+      components={{
+        IconLeft: (props) => (
+          <ChevronLeftIcon className={cn("h-4 w-4", props.className)} />
+        ),
+        IconRight: (props) => (
+          <ChevronRightIcon className={cn("h-4 w-4", props.className)} />
+        ),
+      }}
+      {...props}
+    />
+  );
 }
 
-const ChevronLeftIcon = React.forwardRef<SVGSVGElement, ExtendedIconProps>((props, ref) => {
-  const { style, className, children, ...rest } = props;
-  return (
-    <svg ref={ref} style={style} className={className} {...rest}>
-      {children && children}
-      {/* SVG Path Data or other elements */}
-    </svg>
-  );
-});
-
-const ChevronRightIcon = React.forwardRef<SVGSVGElement, ExtendedIconProps>((props, ref) => {
-  const { style, className, children, ...rest } = props;
-  return (
-    <svg ref={ref} style={style} className={className} {...rest}>
-      {children && children}
-      {/* SVG Path Data or other elements */}
-    </svg>
-  );
-});
-
-// Usage example
-const App = () => {
-  return (
-    <div>
-      <ChevronLeftIcon className="icon-left">Left</ChevronLeftIcon>
-      <ChevronRightIcon className="icon-right">Right</ChevronRightIcon>
-    </div>
-  );
-};
-
-export default App;
+Calendar.displayName = "Calendar";
+export { Calendar };
